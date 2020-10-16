@@ -12,17 +12,33 @@ import numpy
 principal = Tk()
 principal.title("Análisis audio")
 
+strDirArchivo = StringVar()
+strDirArchivo.set("Dirección del archivo:")
+
 strDireccionArchivo = StringVar()
-strDireccionArchivo.set("Dirección del archivo")
+strDireccionArchivo.set("")
+
+strResultado = StringVar()
+strResultado.set("Mensaje decodificado:")
 
 def abrirArchivo():
+    global direccionArchivo
     direccionArchivo = askopenfilename()
     strDireccionArchivo.set(direccionArchivo)
 
 
 def analizarArchivo():
+    global direccionArchivo
     texto = ""
-    waveTexto = read_wave("Hola.wav")
+    waveTexto = read_wave(direccionArchivo)
+
+    #segmento_waveTexto= waveTexto.segment(0, 0.5)
+    #NumLetras = segmento_waveTexto / 100
+
+    #print(NumLetras)
+    #print("Inicio: " + str(waveTexto.start))
+    #print("Duración: " + str(waveTexto.duration))
+    #print("Frecuencia de muestreo: " + str(waveTexto.framerate))
 
     segmentosNumero = []
     for i in range(6):
@@ -120,7 +136,13 @@ btnAbrir.pack()
 btnAnalisis = Button(principal, text="Analisis archivo wav", command = analizarArchivo)
 btnAnalisis.pack()
 
+lblarchivo = Label(principal, textvariable = strDirArchivo)
+lblarchivo.pack()
+
 lblarchivo = Label(principal, textvariable = strDireccionArchivo)
+lblarchivo.pack()
+
+lblarchivo = Label(principal, textvariable = strResultado)
 lblarchivo.pack()
 
 lblSecuenciaNumeros = Label(principal, textvariable = strSecuencia)

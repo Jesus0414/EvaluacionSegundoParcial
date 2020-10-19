@@ -32,14 +32,14 @@ def analizarArchivo():
     texto = ""
     letra = ""
     espacio = ""
-    divisor1 = 100
-    divisor2 = 10000
+    divisor1 = 100.0
+    divisor2 = 10000.0
     waveTexto = read_wave(direccionArchivo)
 
     #numero de Letras que tendrá la palabra
     primerSegmento = []
     primerSegmento.append(waveTexto.segment(start=0, duration=0.5))
-    frecuenciaPrimerSegmento = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
+    frecuenciaPrimerSegmento = [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0, 1000.0]
     tolerancia = 10
 
     for segmento in primerSegmento:
@@ -54,29 +54,30 @@ def analizarArchivo():
         for frecuencia in frecuenciasDominantes:
             for frecuenciaDTMF in frecuenciaPrimerSegmento:
                 if frecuencia > frecuenciaDTMF - tolerancia and frecuencia < frecuenciaDTMF + tolerancia:
-                    frecuenciaNumeroLetras  = frecuenciaDTMF 
-        if frecuenciaNumeroLetras  == 100:
-            letra =  100 / divisor1
-        elif frecuenciaNumeroLetras  == 200:
-            letra =  200 / divisor1
-        elif frecuenciaNumeroLetras  == 300:
-            letra =  300 / divisor1
-        elif frecuenciaNumeroLetras  == 400:
-            letra =  400 / divisor1
-        elif frecuenciaNumeroLetras  == 500:
-            letra =  500 / divisor1
-        elif frecuenciaNumeroLetras  == 600:
-            letra =  600 / divisor1
-        elif frecuenciaNumeroLetras  == 700:
-            letra =  700 / divisor1
-        elif frecuenciaNumeroLetras  == 800:
-            letra =  800 / divisor1
-        elif frecuenciaNumeroLetras  == 900:
-            letra =  900 / divisor1
-        elif frecuenciaNumeroLetras  == 1000:
-            letra =  1000 / divisor1
-        else:
-            letra = "-"
+                    frecuenciaNumeroLetras  = frecuenciaDTMF
+        letra = frecuenciaNumeroLetras/divisor1 
+        #if frecuenciaNumeroLetras  == 100:
+            #letra =  100 / divisor1
+        #elif frecuenciaNumeroLetras  == 200:
+            #letra =  200 / divisor1
+        #elif frecuenciaNumeroLetras  == 300:
+            #letra =  300 / divisor1
+        #elif frecuenciaNumeroLetras  == 400:
+            #letra =  400 / divisor1
+        #elif frecuenciaNumeroLetras  == 500:
+            #letra =  500 / divisor1
+        #elif frecuenciaNumeroLetras  == 600:
+            #letra =  600 / divisor1
+        #elif frecuenciaNumeroLetras  == 700:
+            #letra =  700 / divisor1
+        #elif frecuenciaNumeroLetras  == 800:
+            #letra =  800 / divisor1
+        #elif frecuenciaNumeroLetras  == 900:
+            #letra =  900 / divisor1
+        #elif frecuenciaNumeroLetras  == 1000:
+            #letra =  1000 / divisor1
+        #else:
+            #letra = "-"
     print(letra)
     round(letra)
     #tamaño del segmento de cada letra
@@ -97,31 +98,32 @@ def analizarArchivo():
         for frecuencia in frecuenciasDominantes:
             for frecuenciaDTMF in frecuenciaSegundoSegmento:
                 if frecuencia > frecuenciaDTMF - tolerancia2 and frecuencia < frecuenciaDTMF + tolerancia2:
-                    frecuenciaTamaño  = frecuenciaDTMF 
-        if frecuenciaTamaño  == 1000:
-            espacio =  1000 / divisor2
-        elif frecuenciaTamaño  == 2000:
-            espacio =  2000 / divisor2
-        elif frecuenciaTamaño  == 2500:
-            espacio =  2500 / divisor2
-        elif frecuenciaTamaño  == 3000:
-            espacio =  3000 / divisor2
-        elif frecuenciaTamaño  == 4000:
-            espacio =  4000 / divisor2
-        elif frecuenciaTamaño  == 5000:
-            espacio =  5000 / divisor2
-        elif frecuenciaTamaño  == 6000:
-            espacio =  6000 / divisor2
-        elif frecuenciaTamaño  == 7000:
-            espacio =  7000 / divisor2
-        elif frecuenciaTamaño  == 8000:
-            espacio =  8000 / divisor2
-        elif frecuenciaTamaño  == 9000:
-            espacio =  9000 / divisor2
-        elif frecuenciaTamaño  == 10000:
-            espacio =  10000 / divisor2
-        else:
-            espacio = "-"
+                    frecuenciaTamaño  = frecuenciaDTMF
+        espacio = frecuenciaTamaño/divisor2
+        #if frecuenciaTamaño  == 1000:
+            #espacio =  1000 / divisor2
+        #elif frecuenciaTamaño  == 2000:
+            #espacio =  2000 / divisor2
+        #elif frecuenciaTamaño  == 2500:
+            #espacio =  2500 / divisor2
+        #elif frecuenciaTamaño  == 3000:
+            #espacio =  3000 / divisor2
+        #elif frecuenciaTamaño  == 4000:
+            #espacio =  4000 / divisor2
+        #elif frecuenciaTamaño  == 5000:
+            #espacio =  5000 / divisor2
+        #elif frecuenciaTamaño  == 6000:
+            #espacio =  6000 / divisor2
+        #elif frecuenciaTamaño  == 7000:
+            #espacio =  7000 / divisor2
+        #elif frecuenciaTamaño  == 8000:
+            #espacio =  8000 / divisor2
+        #elif frecuenciaTamaño  == 9000:
+            #espacio =  9000 / divisor2
+        #elif frecuenciaTamaño  == 10000:
+            #espacio =  10000 / divisor2
+        #else:
+            #espacio = "-"
     print(espacio)
 
     #decodificador de la palabra
